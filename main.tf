@@ -13,8 +13,8 @@ provider "google" {
 }
 
 resource "google_storage_bucket" "taxi-data-bucket" {
-  name          = "taxi-data-bucket-484819-a6"
-  location      = "US"
+  name          = var.gcs_bucket_name
+  location      = var.location
   force_destroy = true
 
   lifecycle_rule {
@@ -25,4 +25,9 @@ resource "google_storage_bucket" "taxi-data-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+resource "google_bigquery_dataset" "taxi-data-dataset" {
+  dataset_id = var.bq_dataset_id
+  location   = var.location
 }
