@@ -8,8 +8,9 @@ terraform {
 }
 
 provider "google" {
-  project = "curious-helix-484819-a6"
-  region  = "us-central1"
+  credentials = file(var.credentials)
+  project     = var.project
+  region      = var.region
 }
 
 resource "google_storage_bucket" "taxi-data-bucket" {

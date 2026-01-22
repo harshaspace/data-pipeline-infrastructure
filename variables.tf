@@ -1,3 +1,18 @@
+variable "credentials" {
+  description = "My Credentials"
+  default     = "~/gcp-srv-account-key/terraform-runner.json"
+}
+
+variable "project" {
+  description = "Project"
+  default     = "curious-helix-484819-a6"
+}
+
+variable "region" {
+  description = "Region"
+  default     = "us-central1"
+}
+
 variable "location" {
   description = "Location for GCP resources"
   default     = "US"
